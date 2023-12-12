@@ -9,7 +9,7 @@ SECURITY_GROUP_ID=sg-0feb1eadee760c918
 
     for i in "${NAMES[@]}"
 do
-    if [ [ $i == "mongodb" || $i = "mysql"] ];
+    if [ [ $i == "mongodb" || $i == "mysql"] ];
 then
     INSTANCE_TYPE="t3.medium"
 else    
@@ -17,6 +17,5 @@ else
 fi
 
     echo "creating $i instance"
-    aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE="" --security-group-ids sg-0feb1eadee760c918
-    --tag-specifications "ResourceType=security-group,Tags=[{Key=Name,Value=$i}]"
+    aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE="" --security-group-ids sg-0feb1eadee760c918 "ResourceType=security-group,Tags=[{Key=Name,Value=$i}]"
 done
