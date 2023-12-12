@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dipatch")
+NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dipatch" "web")
 INSTANCE_TYPE=""
 IMAGE_ID=ami-03265a0778a880afb
 SECURITY_GROUP_ID=sg-0feb1eadee760c918
@@ -18,5 +18,5 @@ fi
 
     echo "creating $i instance"
 
-    aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE="" --security-group-id $SECURITY_GROUP_ID   "ResourceType=security-group,Tags=[{Key=Name,Value=$i}]"
+    aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE="" --security-group-id $SECURITY_GROUP_ID   --tag-specifications "ResourceType=security-group,Tags=[{Key=Name,Value=$i}]"
 done
