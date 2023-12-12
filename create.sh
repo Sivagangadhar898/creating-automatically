@@ -1,5 +1,5 @@
 #!/bin/bash
-NAMES=("mongodb" "rediis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dipatch")
+NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dipatch")
 for i in "${NAMES[@]}"
 do
 echo "NAME: $i"
